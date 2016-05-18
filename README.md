@@ -2,6 +2,8 @@
 
 > Inject and wrap contents of multiple files into a single file.
 
+[![Build Status](https://travis-ci.org/jhartman86/gulp-inception.svg?branch=master)](https://travis-ci.org/jhartman86/gulp-inception)
+
 Pretend you have three files, `a.html`, `b.html`, and `index.html`. You use a
 snazzy javascript library like angular or something, where you want to have
 access to html partials / template strings. You want to write your templates
