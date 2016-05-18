@@ -1,0 +1,8 @@
+sudo: false
+env: NODE_ENV=test
+language: node_js
+node_js:
+  - "4"
+  - "stable"
+script:
+  - npm run test
