@@ -1,0 +1,11 @@
+<html>
+<scriptz type="text/template" id="cats.html"><h4>Cats</h4>
+<p>are mediocre citizens</p>
+</scriptz>
+<scriptz type="text/template" id="dogs.html"><h1>Dogs</h1>
+<p>are simply great</p>
+</scriptz>
+<scriptz type="text/template" id="camels.html"><h1>Camels!</h1>
+<p>are hilarious</p>
+</scriptz>
+</html>

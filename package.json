@@ -1,0 +1,45 @@
+{
+  "name": "gulp-inception",
+  "version": "0.0.1",
+  "description": "Inject and wrap contents of multiple files into a single file",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
+  "engines": {
+    "node": ">=4.2.3"
+  },
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jhartman86/gulp-inception.git"
+  },
+  "keywords": [
+    "stream",
+    "file",
+    "merge",
+    "template",
+    "templating"
+  ],
+  "author": "Jon Hartman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhartman86/gulp-inception/issues"
+  },
+  "homepage": "https://github.com/jhartman86/gulp-inception/",
+  "dependencies": {
+    "concat-stream": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "lodash": "^4.12.0",
+    "through2": "^2.0.1",
+    "vinyl-fs": "^2.4.3"
+  },
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "gulp": "^3.9.1",
+    "istanbul": "^0.4.3",
+    "mocha": "^2.4.5"
+  }
+}
