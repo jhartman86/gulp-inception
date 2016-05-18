@@ -171,7 +171,9 @@ gulp.task('make-html', function( done ){
 
 See [CHANGELOG.md](https://github.com/jhartman86/gulp-inception/blob/master/CHANGELOG.md)
 
-Developed on Node v4.2.3, unless otherwise noted going forward.
+## Contributing
+
+Pull requests welcome. Please file any issues on the [issues page](https://github.com/jhartman86/gulp-inception/issues).
 
 ## License
 
