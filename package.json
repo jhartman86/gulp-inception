@@ -1,6 +1,6 @@
 {
   "name": "gulp-inception",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Inject and wrap contents of multiple files into a single file",
   "main": "index.js",
   "scripts": {
