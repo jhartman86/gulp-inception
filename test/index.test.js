@@ -1,10 +1,13 @@
+require('mocha');
+
 var _         = require('lodash'),
     fs        = require('fs'),
     path      = require('path'),
-    assert    = require('assert'),
+    chai      = require('chai'),
+    assert    = chai.assert,
+    expect    = chai.expect,
     through2  = require('through2'),
     gulp      = require('gulp');
-require('mocha');
 
 describe('gulp-inception', function(){
   var inception = require('../index');
@@ -169,6 +172,40 @@ describe('gulp-inception', function(){
           });
       });
     });
+
+    it('should allow piping per-file contents through other stream processors',
+      function ( done ) {
+        gulp.src(fixturePath('files/index.html'))
+          .pipe(inception({
+            files: [
+              fixturePath('files/depth0/cats.html'),
+              fixturePath('files/depth0/dogs.html')
+            ],
+            wrapTag: 'script',
+            attributes: {
+              type: 'tester',
+              id: function(){ return 'test'; }
+            },
+            // this is the thing actually being tested here: this is like a
+            // "middleware" stream processor you can plug in
+            pipeThrough: require('./fixtures/util/pipe_processor')()
+          }))
+          .pipe(through2.obj(function( file, enc, complete ){
+            var contents = file.contents.toString();
+            expect(contents).to.contain(
+              '<h4>Cats</h4><p>are mediocre citizens</p>'
+            );
+            expect(contents).to.contain(
+              '<h1>Dogs</h1><p>are simply great</p>'
+            );
+            complete();
+          }))
+          .on('finish', function () {
+            this.destroy();
+            done();
+          });
+      }
+    );
 
     /**
      * This test exists in order to make sure that when errors are issued,

@@ -15,7 +15,8 @@ var defaultOptions  = {
   attributes: {
     type: 'text/template',
     id: function( fileInfo ){ return path.join(fileInfo.dir, fileInfo.base); }
-  }
+  },
+  pipeThrough: null
 };
 
 /**
@@ -57,6 +58,9 @@ module.exports = function( passedOptions ){
         // "find all the files specified by options.files grep except the
         // one we'll be adding the results into"
         .src(options.files.concat([`!${targetFile.path}`]))
+        // pipe through another processor before merging all files into the
+        // target? if not set, will use .noop() by default
+        .pipe(options.pipeThrough || gulpUtil.noop())
         // take all the files in the stream, concat into one stream,
         // map->transform all of them into a new buffer, and set that buffer
         // as the contents on the target file (replacing the "indicator" in

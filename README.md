@@ -147,6 +147,17 @@ gulp.task('make-html', function(){
   <script class="yolo" data-abc="1234" data-path="/path1/b.html">...</script>
   ```
 
+* `pipeThrough` function | optional {default: null}
+
+  Send each source file through a "middleware" type stream processor to
+  transform the contents before merging into the target.
+
+  ```
+  {
+    pipeThrough: someGulpProcessor()
+  }
+  ```
+
 ## Errors
 
 `gulp-inception` will emit `Errors` under certain conditions (eg. if configs are invalid). In order to gracefully handle errors so this doesn't nuke your `.watch()`es, consider wiring up your gulp tasks like so:
